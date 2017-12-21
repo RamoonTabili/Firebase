@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase</title>
+</head>
+<body>
+   
+   <h1 id="question">What is the date today?</h1>
+   <h2 id="date"></h2>
+   
+   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyAiSQbLHYPNsdL-AiOTXMuw5Z5i0tjWOi4",
+    authDomain: "web-quickstart-a1df9.firebaseapp.com",
+    databaseURL: "https://web-quickstart-a1df9.firebaseio.com",
+    projectId: "web-quickstart-a1df9",
+    storageBucket: "web-quickstart-a1df9.appspot.com",
+    messagingSenderId: "55835317448"
+  };
+  firebase.initializeApp(config);
+    
+    var date = document.getElementById('date');
+    var dbRef = firebase.database().ref('text');
+    dbRef.on('value', snap => date.innerHTML = snap.val());
+    
+</script> 
+</body>
+</html>
